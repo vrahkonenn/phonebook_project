@@ -55,7 +55,7 @@ app.get('/api/persons/:id', (request, response, next) => {
 })
 
 app.put('/api/persons/:id', (request, response, next) => {
-  const { name, number } = request.body
+  const { name, number, image } = request.body
 
   People
     .findById(request.params.id)
@@ -66,6 +66,7 @@ app.put('/api/persons/:id', (request, response, next) => {
 
       people.name = name
       people.number = number
+      people.image = image
 
       return people.save().then((updatedPeople) => {
         response.json(updatedPeople)
