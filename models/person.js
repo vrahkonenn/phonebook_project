@@ -30,7 +30,11 @@ const peopleSchema = new mongoose.Schema({
         return /^\d{2,3}-\d+$/.test(v)
       },
       message: props => `${props.value} is not a valid phone number! Use format XX-XXXX... or XXX-XXXX...`
-  }},
+    } },
+    image: {
+      type: String,
+      required: true
+    }
 })
 
 peopleSchema.set('toJSON', {
